@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  app:
+    build: .
+    image: localdevelopment/checkout-app:dev
+    volumes:
+      - '.:/app'
+    ports:
+      - '8080:8080'
+    environment:
+      - NODE_ENV=development
+      - NODE_PORT=8080
+      - NPM_CONFIG_LOGLEVEL=info
+    command: ['npm', 'run', 'dev']
